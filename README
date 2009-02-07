@@ -1,0 +1,35 @@
+######################################################################
+    Path::Ancestor 0.01
+######################################################################
+
+NAME
+    Path::Ancestor - Find the longest common ancestor of N paths
+
+SYNOPSIS
+        use Path::Ancestor qw(longest_common_ancestor);
+
+        my $ancestor = longest_common_ancestor( 
+                         "/foo/bar/baz",
+                         "/foo/bar/baz/moo",
+                         "/foo/bar/quack" 
+                       );
+
+        # => "foo/bar"
+
+DESCRIPTION
+    Path::Ancestor finds the longest common ancestor of N file paths.
+
+    Make sure that all paths are given in the same format (either all
+    absolute or all relative), Path::Ancestor won't do anything fancy to
+    convert them. Also, the paths given need to be canonical, because
+    Path::Ancestor won't clean them up or interpret them in terms of a file
+    system -- it is just a string processor.
+
+LEGALESE
+    Copyright 2008 by Mike Schilli, all rights reserved. This program is
+    free software, you can redistribute it and/or modify it under the same
+    terms as Perl itself.
+
+AUTHOR
+    2008, Mike Schilli <cpan@perlmeister.com>
+

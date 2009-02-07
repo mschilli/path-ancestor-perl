@@ -19,11 +19,20 @@ SYNOPSIS
 DESCRIPTION
     Path::Ancestor finds the longest common ancestor of N file paths.
 
-    Make sure that all paths are given in the same format (either all
-    absolute or all relative), Path::Ancestor won't do anything fancy to
-    convert them. Also, the paths given need to be canonical, because
-    Path::Ancestor won't clean them up or interpret them in terms of a file
-    system -- it is just a string processor.
+    Make sure that all paths are given in canonical Unix format, either all
+    absolute or all relative. If you have a different format, use
+    File::Spec::canonpath to sanitize your paths before feeding them to
+    Path::Ancestor, because Path::Ancestor won't do anything fancy in this
+    regard.
+
+    The longest common ancestor path will never have a trailing slash,
+    except if it's the root path (/).
+
+    Examples:
+
+        /foo/bar, /foo     => /foo
+        /foo/bar, /foo/baz => /foo
+        /foo1, /foo2       => /
 
 LEGALESE
     Copyright 2008 by Mike Schilli, all rights reserved. This program is

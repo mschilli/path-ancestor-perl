@@ -59,7 +59,7 @@ sub longest_common_ancestor {
         }
     }
 
-      # Complete path, remove only trailing slashes
+      # Remove only trailing slashes
     while($last_match > 0 and
         $paths->[0]->[ $last_match ] eq "/") {
         $last_match--;
